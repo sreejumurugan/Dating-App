@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthserviceService } from '../_Services/authservice.service';
 import { AlertifyService } from '../_Services/alertify.service';
+import { Routes, Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class NavComponent implements OnInit {
 
   title = 'Dating App';
 
-  constructor(public authService: AuthserviceService, private alertify: AlertifyService) { }
+  constructor(public authService: AuthserviceService, private alertify: AlertifyService,private router: Router) { }
 
   ngOnInit() {
   }
@@ -25,6 +26,9 @@ export class NavComponent implements OnInit {
       this.alertify.success('login successful');
     }, error => {
         this.alertify.error(error);
+    }, () =>{
+
+      this.router.navigate(['/members']);
     });
   }
 
@@ -41,5 +45,6 @@ export class NavComponent implements OnInit {
   {
      localStorage.removeItem('token');
      this.alertify.message('loged out');
+     this.router.navigate(['/home']);
   }
 }
