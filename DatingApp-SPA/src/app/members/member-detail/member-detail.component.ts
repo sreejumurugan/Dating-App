@@ -15,8 +15,8 @@ export class MemberDetailComponent implements OnInit {
   user: User;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
- 
-  constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) { }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -75,8 +75,8 @@ export class MemberDetailComponent implements OnInit {
   }
 
 
-  //loadUser()
-  //{
+  // loadUser()
+  // {
    // this.userService.getUser(+this.route.snapshot.params['id']).subscribe((user: User) =>{
 
     //  this.user = user;
