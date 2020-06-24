@@ -12,12 +12,14 @@ import { Routes, Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   model: any = {};
+  photoUrl: string;
 
   title = 'Dating App';
 
   constructor(public authService: AuthserviceService, private alertify: AlertifyService,private router: Router) { }
 
   ngOnInit() {
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   login()
@@ -44,6 +46,9 @@ export class NavComponent implements OnInit {
   logedOut()
   {
      localStorage.removeItem('token');
+     localStorage.removeItem('user');
+     this.authService.decodeToken = null;
+     this.authService.currentUser = null;
      this.alertify.message('loged out');
      this.router.navigate(['/home']);
   }
