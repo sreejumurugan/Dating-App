@@ -39,6 +39,7 @@ import { UserService } from './_Services/user.service';
 import { MemberDetailsResolver } from './_resolvers/member-detail-resolver';
 import { MemberListResolver } from './_resolvers/member-list-resolver';
 import { MemberEditResolver } from './_resolvers/member-edit-resolver';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 
 
@@ -96,7 +97,8 @@ export function tokenGetter() {
       UserService,
       MemberDetailsResolver,
       MemberListResolver,
-      MemberEditResolver
+      MemberEditResolver,
+      ListsResolver
    ],
    bootstrap: [
       AppComponent
